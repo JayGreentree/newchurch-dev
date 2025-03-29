@@ -37,12 +37,36 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
 
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/home')}}">Homepage </a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/pastor')}}">Pastors </a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/sermon')}}">Sermons</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/events')}}">Events</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/contact')}}">Contact</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/home')}}">
+                                    Homepage
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('pastor') ? 'active' : '' }}" href="{{ url('/pastor')}}">
+                                    Pastors
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('sermon') ? 'active' : '' }}" href="{{ url('/sermon')}}">
+                                    Sermons
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('events') ? 'active' : '' }}" href="{{ url('/events')}}">
+                                    Events
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/about') }}">
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ url('/contact')}}">
+                                    Contact Us
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
