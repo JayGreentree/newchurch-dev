@@ -14,7 +14,7 @@ class MemberInterfaceController extends Controller
         $contacts = Contact::all();
         $totalMembers = Contact::count();
 
-        return view('admin.memberinterface', ['contacts' => $contacts, 'totalMembers' => $totalMembers]);
+        return view('admin.memberinterface', ['contact' => $contacts, 'totalMembers' => $totalMembers]);
     }
 }
 

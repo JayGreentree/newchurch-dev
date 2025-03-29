@@ -1,58 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- default layout -->
+@extends('layouts.default')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>True Church</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap Icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-        rel="stylesheet" type="text/css" />
-    <!-- SimpleLightbox plugin CSS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+@section('assets')
+    <link rel="stylesheet" href="path/to/asset.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+        function onSubmit(token) {
+            document.getElementById("contact").submit();
+        }
+    </script>
+        <script type="text/javascript">
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
 
+@endsection
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@section('content')
 
 
 
-
-</head>
-
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a href="/" class="logo">
-                <img src="https://media.istockphoto.com/id/1333675089/vector/church-christian-vector-icon-on-white-background.jpg?s=1024x1024&w=is&k=20&c=CmUGRFYHCcnjE2XqMfRpHRJfyXgnXTFfqrsv_JR1na0="
-                    alt="Your Logo">
-            </a>
-            <a class="navbar-brand" href="#page-top">True Church</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
-
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Homepage </a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/pastor') }}">Pastors </a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/sermon') }}">Sermons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/events') }}">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                    <li class="nav-item current-nav-item"><a href="{{ url('/contact') }}">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <!-- Masthead-->
     <header class="masterhead1">
         {{-- <div class="container px-4 px-lg-5 h-100">
@@ -135,8 +103,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <form action="{{ route('contact.store') }}" method="post" class="php-email-form"
-                                data-aos="fade-up" data-aos-delay="200">
+                            <form action="/contact/store" id="contact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                                 @csrf
                                 <div class="row gy-4">
 
@@ -158,11 +125,11 @@
                                         <div class="loading">Loading</div>
                                         <div class="error-message"></div>
                                         <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                        <div class="g-recaptcha" data-sitekey="6Lepew4qAAAAAIUt1kR0tVuyLzRqHB8dRRZpfOJ6"></div>
+                                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAADXBQPw75XUttBX" data-callback="javascriptCallback" required=""></div>
                                         <br />
 
-                                        <button type="submit">Send Message</button>
+                                    <button class="" type="submit">Send Message</button>
+                                    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
                                     </div>
 
 
@@ -196,41 +163,4 @@
 
 
 
-
-
-
-
-
-
-    <!-- Footer-->
-    <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
-            <div class="small text-center text-muted">Copyright &copy; 2024 - Company Name</div>
-        </div>
-    </footer>
-
-    <!-- captcha form -->
-
-
-
-    <script type="text/javascript">
-        var onloadCallback = function() {
-            alert("grecaptcha is ready!");
-        };
-    </script>
-
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- SimpleLightbox plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
-
-</html>
+@stop

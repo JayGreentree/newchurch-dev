@@ -12,9 +12,9 @@ git clone `https://github.com/Rufron/newchurch.git`
 2. Install Dependencies: 
 -Install PHP and front-end dependencies: 
 
-`composer install`
+`ddev composer install`
 
-`npm install && npm run dev`
+`ddev npm install && ddev npm run dev`
 
 3. Configure Environment
 
@@ -26,9 +26,9 @@ e.g if your using mysql `DB_CONNECTION=mysql`
 Create a new MySQL database (e.g., newchurch) and run: `php artisan migrate --seed`
 
 5. Generate Application Key
-Run: `php artisan key:generate`
+Run: `ddev artisan key:generate`
 
 6. Start the Development Server
-Run: `php artisan serve`
+Run: `ddev artisan serve`
 
 Access the app at http://localhost:8000

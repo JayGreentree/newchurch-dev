@@ -64,6 +64,9 @@ Route::get('/blog', [EventController::class, 'blogindex'])->name('events');
 // Route to display the login page
 Route::get('/login', [AdminController::class, 'add'])->name('login');
 
+// Route to display the registration page
+Route::get('/register', [AdminController::class, 'add'])->name('register');
+
 
 
 

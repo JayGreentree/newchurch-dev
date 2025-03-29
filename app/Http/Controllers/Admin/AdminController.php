@@ -20,11 +20,11 @@ class AdminController extends Controller
         // if (!auth()->check()) {
         //     return redirect()->route('login')->with('error', 'You must log in first');
         // }
-        $contacts = Contact::all();
+        $contact = Contact::all();
         $totalMembers = Contact::count();
 
 
-        return view('admin.admin', ['contacts' => $contacts, 'totalMembers' => $totalMembers]);
+        return view('admin.admin', ['contact' => $contacts, 'totalMembers' => $totalMembers]);
     }
 
 
